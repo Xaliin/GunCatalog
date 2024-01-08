@@ -6,18 +6,54 @@ namespace GunCatalog
     public partial class App : Application
     {
 
+        private MainFlyoutPage _rootPage;
         private GunCatalogModel _model;
-        private GunCatalogJSONFilePersistence _persistence;
+        private IGunCatalogPersistence _persistence;
 
         public App()
         {
-            InitializeComponent();
-
             _persistence = new GunCatalogJSONFilePersistence();
             _model = new GunCatalogModel(_persistence);
+            _rootPage = new MainFlyoutPage();
+            _rootPage.Flyout = new SideMenuPage(_model);
+            _rootPage.BindingContext = _model;
+            MainPage = _rootPage;
 
-            MainPage = new MainPage(_model);
-            //MainPage = new TabbedPageDemo();
+            _model.HomePageLoaded += _model_HomePageLoaded;
+            _model.FavoritesPageLoaded += _model_FavoritesPageLoaded;
+            _model.DetailsPageLoaded += _model_DetailsPageLoaded;
+            _model.ProfilePageLoaded += _model_ProfilePageLoaded;
+
+            InitializeComponent();
+        }
+
+        private async void _model_HomePageLoaded(object sender, EventArgs e)
+        {
+            if (_rootPage.NavigationPage.CurrentPage is not MainFlyoutPage)
+            {
+                await _rootPage.NavigationPage.PopToRootAsync();
+            }
+        }
+        private async void _model_FavoritesPageLoaded(object sender, EventArgs e)
+        {
+            if (_rootPage.NavigationPage.CurrentPage is not Favorites)
+            {
+                await _rootPage.NavigationPage.PushAsync(new Favorites(_model));
+            }
+        }
+        private async void _model_DetailsPageLoaded(object sender, EventArgs e)
+        {
+            if (_rootPage.NavigationPage.CurrentPage is not GunDetails)
+            {
+                await _rootPage.NavigationPage.PushAsync(new GunDetails(_model));
+            }
+        }
+        private async void _model_ProfilePageLoaded(object sender, EventArgs e)
+        {
+            if (_rootPage.NavigationPage.CurrentPage is not Profile)
+            {
+                await _rootPage.NavigationPage.PushAsync(new Profile(_model));
+            }
         }
     }
 }

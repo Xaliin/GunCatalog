@@ -9,7 +9,13 @@
     <MauiXaml Update="GunDetails.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="MainFlyoutPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Profile.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="SideMenuPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="TabbedPageDemo.xaml">

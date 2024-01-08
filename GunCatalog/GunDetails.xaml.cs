@@ -1,9 +1,13 @@
+using GunCatalog.Model;
+
 namespace GunCatalog;
 
 public partial class GunDetails : ContentPage
 {
-	public GunDetails()
+	private GunCatalogModel _model;
+	public GunDetails(GunCatalogModel model)
 	{
 		InitializeComponent();
+		_model = model;
 	}
 }

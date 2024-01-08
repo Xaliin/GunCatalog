@@ -4,13 +4,11 @@ namespace GunCatalog
 {
     public partial class MainPage : ContentPage
     {
-        private GunCatalogModel _model;
+        private GunCatalogModel _model => App.Current.MainPage.BindingContext as GunCatalogModel;
 
-        public MainPage(GunCatalogModel model)
+        public MainPage()
         {
             InitializeComponent();
-            _model = model;
         }
     }
-
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GunCatalog.SideMenuPage"
+             Title="SideMenuPage">
+
+    <Grid>
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+                <Button x:Name="HomeButton" Clicked="HomeButton_Clicked" Text="Home"/>
+                <Button x:Name="FavoritesButton" Clicked="FavoritesButton_Clicked" Text="Favorites"/>
+                <Button x:Name="ProfileButton" Clicked="ProfileButton_Clicked" Text="Profile"/>
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

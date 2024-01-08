@@ -10,13 +10,41 @@ namespace GunCatalog.Model
     public class GunCatalogModel
     {
 
-        private GunCatalogJSONFilePersistence? _persistence;
+        private IGunCatalogPersistence _persistence;
 
-        public GunCatalogModel(GunCatalogJSONFilePersistence? persistence) 
+        public event EventHandler? HomePageLoaded;
+        public event EventHandler? FavoritesPageLoaded;
+        public event EventHandler? DetailsPageLoaded;
+        public event EventHandler? ProfilePageLoaded;
+
+
+        public GunCatalogModel(IGunCatalogPersistence persistence) 
         { 
             _persistence = persistence;
+        }
+
+        private void OnHomePageLoaded() => HomePageLoaded?.Invoke(this, EventArgs.Empty);
+        private void OnFavoritesPageLoaded() => FavoritesPageLoaded?.Invoke(this, EventArgs.Empty);
+        private void OnDetailsPageLoaded() => DetailsPageLoaded?.Invoke(this, EventArgs.Empty);
+        private void OnProfilePageLoaded() => ProfilePageLoaded?.Invoke(this, EventArgs.Empty);
 
 
+
+        public async Task LoadHomePageAsync()
+        {
+            OnHomePageLoaded();
+        }
+        public async Task LoadFavoritesPageAsync()
+        {
+            OnFavoritesPageLoaded();
+        }
+        public async Task LoadDetailsPage()
+        {
+            OnDetailsPageLoaded();
+        }
+        public async Task LoadProfilePageAsync()
+        {
+            OnProfilePageLoaded();
         }
     }
 }

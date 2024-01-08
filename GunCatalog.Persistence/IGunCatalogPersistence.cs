@@ -9,8 +9,8 @@ namespace GunCatalog.Persistence
 {
     public interface IGunCatalogPersistence
     {
-        Task SaveData(List<Gun> guns);
-        Task<List<Gun>> LoadData();
+        Task SaveData(List<GunData> guns);
+        Task<List<GunData>> LoadData();
 
         Task SaveCatalogStateAsync(GunCatalogState state);
         Task<GunCatalogState?> LoadCatalogStateAsync();

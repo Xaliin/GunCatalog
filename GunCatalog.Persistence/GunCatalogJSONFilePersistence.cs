@@ -42,7 +42,7 @@ namespace GunCatalog.Persistence
             }
         }
 
-        public async Task SaveData(List<Gun> guns)
+        public async Task SaveData(List<GunData> guns)
         {
             try
             {
@@ -52,24 +52,24 @@ namespace GunCatalog.Persistence
             catch { }
         }
 
-        public async Task<List<Gun>> LoadData()
+        public async Task<List<GunData>> LoadData()
         {
             try
             {
                 if (File.Exists(_dataFileName))
                 {
                     string json = await File.ReadAllTextAsync(_dataFileName);
-                    List<Gun> guns = JsonConvert.DeserializeObject<List<Gun>>(json);
+                    List<GunData> guns = JsonConvert.DeserializeObject<List<GunData>>(json);
                     return guns;
                 }
                 else
                 {
-                    return new List<Gun>();
+                    return new List<GunData>();
                 }
             }
             catch 
             { 
-                return new List<Gun>(); 
+                return new List<GunData>(); 
             }
         }
     }
