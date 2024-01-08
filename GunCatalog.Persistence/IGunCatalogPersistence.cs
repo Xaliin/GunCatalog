@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GunCatalog.Persistence.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,8 @@ namespace GunCatalog.Persistence
 {
     public interface IGunCatalogPersistence
     {
-        Task SaveData(List<GunData> guns);
-        Task<List<GunData>> LoadData();
+        Task SaveData(List<Gun> guns);
+        Task<List<Gun>> LoadData();
 
         Task SaveCatalogStateAsync(GunCatalogState state);
         Task<GunCatalogState?> LoadCatalogStateAsync();

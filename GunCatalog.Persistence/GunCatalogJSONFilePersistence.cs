@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GunCatalog.Persistence.DTO;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,7 @@ namespace GunCatalog.Persistence
             }
         }
 
-        public async Task SaveData(List<GunData> guns)
+        public async Task SaveData(List<Gun> guns)
         {
             try
             {
@@ -51,24 +52,24 @@ namespace GunCatalog.Persistence
             catch { }
         }
 
-        public async Task<List<GunData>> LoadData()
+        public async Task<List<Gun>> LoadData()
         {
             try
             {
                 if (File.Exists(_dataFileName))
                 {
                     string json = await File.ReadAllTextAsync(_dataFileName);
-                    List<GunData> guns = JsonConvert.DeserializeObject<List<GunData>>(json);
+                    List<Gun> guns = JsonConvert.DeserializeObject<List<Gun>>(json);
                     return guns;
                 }
                 else
                 {
-                    return new List<GunData>();
+                    return new List<Gun>();
                 }
             }
             catch 
             { 
-                return new List<GunData>(); 
+                return new List<Gun>(); 
             }
         }
     }

@@ -20,5 +20,10 @@ namespace GunCatalog.Persistence.DTO
             Picture = picture;
             Data = data;
         }
+
+        public Gun()
+        {
+            
+        }
     }
 }

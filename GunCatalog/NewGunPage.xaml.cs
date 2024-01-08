@@ -77,11 +77,12 @@ public partial class NewGunPage : ContentPage
         if (String.IsNullOrEmpty(hossz) || String.IsNullOrWhiteSpace(hossz)) { await DisplayAlert("Error!", "\"Hossz\" is required!", "OK"); }
         if (String.IsNullOrEmpty(tarkapacitas) || String.IsNullOrWhiteSpace(tarkapacitas)) { await DisplayAlert("Error!", "\"Tárkapacitás\" is required!", "OK"); }
 
-        int id = _model.Guns.Max(x => x.Id);
+        int id = _model.Guns.Count == 0 ? 0 : _model.Guns.Max(x => x.Id);
 
         GunData gunData = new GunData(tipus,nev,mukodes,loszer,tomeg,hossz,csohossz,tarkapacitas,lovedekSebessege,szarmazas,tuzgyorsasag);
         Gun gun = new Gun(id, _model.NewGunImageBytes, gunData);
         _model.Guns.Add(gun);
+        await _model.SaveData();
         _model.NewGunImageBytes = null;
         await DisplayAlert("Success", "New gun added!", "OK");
         await _model.LoadHomePageAsync();

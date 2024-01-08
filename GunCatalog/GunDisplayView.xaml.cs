@@ -1,4 +1,4 @@
-using GunCatalog.Persistence.DTO;
+﻿using GunCatalog.Persistence.DTO;
 
 namespace GunCatalog;
 
@@ -35,7 +35,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnTipusChanged(string value)
     {
-        TipusLabel.Text = value;
+        TipusLabel.Text = "Típus: " + value;
     }
 
 
@@ -52,7 +52,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnNevChanged(string value)
     {
-        NevLabel.Text = value;
+        NevLabel.Text = "Név: " + value;
     }
 
 
@@ -69,7 +69,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnMukodesChanged(string value)
     {
-        MukodesLabel.Text = value;
+        MukodesLabel.Text = "Működés: " + value;
     }
 
 
@@ -86,7 +86,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnLoszerChanged(string value)
     {
-        LoszerLabel.Text = value;
+        LoszerLabel.Text = "Lőszer: " + value;
     }
 
 
@@ -103,7 +103,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnTomegChanged(string value)
     {
-        TomegLabel.Text = value;
+        TomegLabel.Text = "Tömeg: " + value;
     }
 
 
@@ -120,7 +120,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnHosszChanged(string value)
     {
-        HosszLabel.Text = value;
+        HosszLabel.Text = "Hossz: " + value;
     }
 
 
@@ -137,7 +137,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnCsohosszChanged(string value)
     {
-        CsohosszLabel.Text = value;
+        CsohosszLabel.Text = "Cső hossz: " + value;
     }
 
     //------ TARKAPACITAS
@@ -153,7 +153,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnTarkapacitasChanged(string value)
     {
-        TarkapacitasLabel.Text = value;
+        TarkapacitasLabel.Text = "Tárkapacitás: " + value;
     }
 
 
@@ -170,7 +170,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnLovedekSebessegeChanged(string value)
     {
-        LovedekSebessegeLabel.Text = value;
+        LovedekSebessegeLabel.Text = "Lövedéksebesség: " + value;
     }
 
     //------ SZARMAZAS
@@ -186,7 +186,7 @@ public partial class GunDisplayView : ContentView
 
     private void OnSzarmazasChanged(string value)
     {
-        SzarmazasLabel.Text = value;
+        SzarmazasLabel.Text = "Származás: " + value;
     }
 
     //------ TUZGYORSASAG
@@ -202,12 +202,13 @@ public partial class GunDisplayView : ContentView
 
     private void OnTuzgyorsasagChanged(string value)
     {
-        TuzgyorsasagLabel.Text = value;
+        TuzgyorsasagLabel.Text = "Tűzgyorsaság: " + value;
     }
 
 
     public GunDisplayView(Gun gun)
     {
+        InitializeComponent();
         this.KepValue = gun.Picture is null ? ImageSource.FromFile("imagenotfound.png") : ImageSource.FromStream(() => new MemoryStream(gun.Picture));
         this.TipusValue = gun.Data.Tipus;
         this.NevValue = gun.Data.Nev;

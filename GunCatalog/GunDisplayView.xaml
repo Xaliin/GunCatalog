@@ -6,37 +6,16 @@
         <StackLayout>
             <Image x:Name="Image" HeightRequest="128" WidthRequest="128" />
 
-            <Label Text="Tipus:" />
             <Label x:Name="TipusLabel" />
-
-            <Label Text="Nev:" />
             <Label x:Name="NevLabel" />
-
-            <Label Text="Mukodes:" />
             <Label x:Name="MukodesLabel" />
-
-            <Label Text="Loszer:" />
             <Label x:Name="LoszerLabel" />
-
-            <Label Text="Tomeg:" />
             <Label x:Name="TomegLabel" />
-
-            <Label Text="Hossz:" />
             <Label x:Name="HosszLabel" />
-
-            <Label Text="Csohossz:" />
             <Label x:Name="CsohosszLabel" />
-
-            <Label Text="Tarkapacitas:" />
             <Label x:Name="TarkapacitasLabel" />
-
-            <Label Text="LovedekSebessege:" />
             <Label x:Name="LovedekSebessegeLabel" />
-
-            <Label Text="Szarmazas:" />
             <Label x:Name="SzarmazasLabel" />
-
-            <Label Text="Tuzgyorsasag:" />
             <Label x:Name="TuzgyorsasagLabel" />
         </StackLayout>
     </VerticalStackLayout>

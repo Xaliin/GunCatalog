@@ -30,4 +30,9 @@ public partial class SideMenuPage : ContentPage
     {
         await _model.LoadProfilePageAsync();
     }
+
+    private async void NewGunButton_Clicked(object sender, EventArgs e)
+    {
+        await _model.LoadNewGunPage();
+    }
 }

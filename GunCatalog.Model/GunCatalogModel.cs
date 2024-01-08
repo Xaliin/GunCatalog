@@ -30,7 +30,9 @@ namespace GunCatalog.Model
 
         public GunCatalogModel(IGunCatalogPersistence persistence) 
         { 
+            Task.Run(() => LoadData());
             _persistence = persistence;
+            Guns = new List<Gun>();
         }
 
         private void OnHomePageLoaded() => HomePageLoaded?.Invoke(this, EventArgs.Empty);
@@ -52,12 +54,26 @@ namespace GunCatalog.Model
                     await tempImage.SaveAsJpegAsync(ms);
                     NewGunImageBytes = ms.ToArray();
                 }
+                OnNewGunPhotoLoaded();
             }
         }
 
 
+        public async Task SaveData()
+        {
+            await _persistence.SaveData(Guns);
+        }
+
+        public async Task LoadData()
+        {
+            Guns = await _persistence.LoadData();
+        }
+
+
+
         public async Task LoadHomePageAsync()
         {
+            await LoadData();
             OnHomePageLoaded();
         }
         public async Task LoadFavoritesPageAsync()

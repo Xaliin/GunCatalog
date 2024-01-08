@@ -10,5 +10,20 @@ namespace GunCatalog
         {
             InitializeComponent();
         }
+
+        private void UpdateView()
+        {
+            CatalogItems.Children.Clear();
+            foreach (var gun in _model.Guns)
+            {
+                CatalogItems.Children.Add(new GunDisplayView(gun));
+            }
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            UpdateView();
+        }
     }
 }

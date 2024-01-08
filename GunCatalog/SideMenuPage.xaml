@@ -10,6 +10,7 @@
                 <Button x:Name="HomeButton" Clicked="HomeButton_Clicked" Text="Home"/>
                 <Button x:Name="FavoritesButton" Clicked="FavoritesButton_Clicked" Text="Favorites"/>
                 <Button x:Name="ProfileButton" Clicked="ProfileButton_Clicked" Text="Profile"/>
+                <Button x:Name="NewGunButton" Clicked="NewGunButton_Clicked" Text="Add new gun"/>
             </StackLayout>
         </ScrollView>
     </Grid>
