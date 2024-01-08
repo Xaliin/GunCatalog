@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GunCatalog.MainPage"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView">
+
+    <Grid>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,10"
+            Spacing="25">
+            <!-- Logo and slogan -->
+            <Image  
+                Source="logo.png"
+                HeightRequest="100"
+                Aspect="AspectFit"
+                SemanticProperties.Description="A Sniper Rifle logo" />
+            <Label
+                Text="This is a gun enthusiast favorite place."
+                Style="{StaticResource Headline}"
+                FontFamily="Old English Text MT"
+                FontSize="25"
+                Margin="0,-20,0,20"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <!-- List -->
+            <Grid Margin="0,30,0,0">
+                <Image 
+                   Background="Transparent"
+                   Source="ak47.jpg"
+                   MaximumWidthRequest="350"
+                   Aspect="AspectFit" />
+            </Grid>
+
+            <Grid Margin="20,-20,20,10">
+                <Frame CornerRadius="20" MaximumWidthRequest="300">
+                    <Label
+                        Text="Name of the weapon"
+                        TextColor="White"
+                        Style="{StaticResource Headline}"
+                        FontFamily="Times New Roman"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        SemanticProperties.HeadingLevel="Level1" />
+                </Frame>
+            </Grid>
+
+
+            <Grid Margin="0,30,0,0">
+                <Image 
+                   Background="Transparent"
+                   Source="ak74.jpg"
+                   MaximumWidthRequest="350"
+                   Aspect="AspectFit" />
+            </Grid>
+
+            <Grid Margin="20,-20,20,10">
+                <Frame CornerRadius="20" MaximumWidthRequest="300">
+                    <Label
+                        Text="Name of the weapon"
+                        TextColor="White"
+                        Style="{StaticResource Headline}"
+                        FontFamily="Times New Roman"
+                        FontSize="20"
+                        HorizontalOptions="Center"
+                        SemanticProperties.HeadingLevel="Level1" />
+                </Frame>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+    </Grid>
+
+    
+</ContentPage>
