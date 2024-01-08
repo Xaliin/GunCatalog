@@ -12,6 +12,9 @@
     <MauiXaml Update="MainFlyoutPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="NewGunPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="Profile.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
