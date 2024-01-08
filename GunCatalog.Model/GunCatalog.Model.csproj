@@ -21,6 +21,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
+		<PackageReference Include="SixLabors.ImageSharp" Version="3.1.2" />
 	</ItemGroup>
 
 	<ItemGroup>

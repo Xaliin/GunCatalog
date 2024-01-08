@@ -23,6 +23,7 @@ namespace GunCatalog
             _model.FavoritesPageLoaded += _model_FavoritesPageLoaded;
             _model.DetailsPageLoaded += _model_DetailsPageLoaded;
             _model.ProfilePageLoaded += _model_ProfilePageLoaded;
+            _model.NewGunPageLoaded += _model_NewGunPageLoaded;
 
             InitializeComponent();
         }
@@ -53,6 +54,14 @@ namespace GunCatalog
             if (_rootPage.NavigationPage.CurrentPage is not Profile)
             {
                 await _rootPage.NavigationPage.PushAsync(new Profile(_model));
+            }
+        }
+
+        private async void _model_NewGunPageLoaded(object? sender, EventArgs e)
+        {
+            if (_rootPage.NavigationPage.CurrentPage is not NewGunPage)
+            {
+                await _rootPage.NavigationPage.PushAsync(new NewGunPage(_model));
             }
         }
     }

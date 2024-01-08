@@ -6,7 +6,67 @@
 
     <ScrollView>
         <VerticalStackLayout>
-            
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tipus:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="TipusEntry" Placeholder="Enter Tipus" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Nev:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="NevEntry" Placeholder="Enter Nev" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Mukodes:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="MukodesEntry" Placeholder="Enter Mukodes" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Loszer:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="LoszerEntry" Placeholder="Enter Loszer" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tomeg:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="TomegEntry" Placeholder="Enter Tomeg" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Hossz:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="HosszEntry" Placeholder="Enter Hossz" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Csohossz:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="CsohosszEntry" Placeholder="Enter Csohossz" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tarkapacitas:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="TarkapacitasEntry" Placeholder="Enter Tarkapacitas" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="LovedekSebessege:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="LovedekSebessegeEntry" Placeholder="Enter LovedekSebessege" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Szarmazas:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="SzarmazasEntry" Placeholder="Enter Szarmazas" />
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Tuzgyorsasag:" VerticalOptions="CenterAndExpand" />
+                <Entry x:Name="TuzgyorsasagEntry" Placeholder="Enter Tuzgyorsasag" />
+            </StackLayout>
+
+            <Button x:Name="TakePhotoButton" Text="Take Photo" Clicked="TakePhotoButton_Clicked" />
+            <Button x:Name="ChoosePhotoButton" Text="Choose Photo" Grid.Row="1" Clicked="ChoosePhotoButton_Clicked" />
+            <Image x:Name="GunImage" Aspect="AspectFit" HeightRequest="200" Grid.Row="0" />
+
+            <Button Clicked="AddNewGunButton_Clicked" />
         </VerticalStackLayout>        
     </ScrollView>
     

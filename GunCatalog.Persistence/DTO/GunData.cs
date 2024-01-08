@@ -19,5 +19,26 @@ namespace GunCatalog.Persistence
         public string? LovedekSebessege { get; set; }
         public string? Szarmazas { get; set; }
         public string? Tuzgyorsasag { get; set; }
+
+        public GunData()
+        {
+                
+        }
+
+        public GunData(string tip, string nev, string muk, string losz, string tom, string hosz, string csoh, string tar, string lov, string szarm, string tuz)
+        {
+            
+            Tipus = tip;
+            Nev = nev;
+            Mukodes = muk;
+            Loszer = losz;
+            Tomeg = tom;
+            Hossz = hosz;
+            Csohossz = csoh;
+            Tarkapacitas = tar;
+            LovedekSebessege = lov;
+            Szarmazas = szarm;
+            Tuzgyorsasag = tuz;
+        }
     }
 }
