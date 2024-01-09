@@ -5,25 +5,28 @@
              xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView">
 
     <Grid>
-        <!-- Logo and slogan -->
         <Image  
             Source="logo.png"
             HeightRequest="100"
             Aspect="AspectFit"
+            VerticalOptions="Start"
             SemanticProperties.Description="A Sniper Rifle logo" />
         <Label
-            Text="This is a gun enthusiast favorite place."
+            Text="A gun enthusiast's favorite place."
             FontFamily="Old English Text MT"
             FontSize="25"
-            Margin="0,-20,0,20"
+            HorizontalOptions="Center"
+            Margin="0,90,0,40"
             SemanticProperties.HeadingLevel="Level1" />
-        <ScrollView>
-            <VerticalStackLayout
-            x:Name="CatalogItems"
-            Padding="30,10"
-            Spacing="25">
+        <ScrollView Margin="0,140,0,0">
+            <VerticalStackLayout 
+                x:Name="CatalogItems"
+                Padding="30,10"
+                Spacing="25">
             </VerticalStackLayout>
         </ScrollView>
     </Grid>
+        <!-- Logo and slogan -->
+        
 
 </ContentPage>

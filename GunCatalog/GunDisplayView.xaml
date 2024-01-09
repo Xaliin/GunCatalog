@@ -2,21 +2,24 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GunCatalog.GunDisplayView">
+        
     <VerticalStackLayout>
         <StackLayout>
-            <Image x:Name="Image" HeightRequest="128" WidthRequest="128" />
+            <Image x:Name="Image" MaximumWidthRequest="350" MaximumHeightRequest="200" />
 
-            <Label x:Name="TipusLabel" />
-            <Label x:Name="NevLabel" />
-            <Label x:Name="MukodesLabel" />
-            <Label x:Name="LoszerLabel" />
-            <Label x:Name="TomegLabel" />
-            <Label x:Name="HosszLabel" />
-            <Label x:Name="CsohosszLabel" />
-            <Label x:Name="TarkapacitasLabel" />
-            <Label x:Name="LovedekSebessegeLabel" />
-            <Label x:Name="SzarmazasLabel" />
-            <Label x:Name="TuzgyorsasagLabel" />
+
+            <Label x:Name="TipusLabel" HorizontalOptions="Center"/>
+            <Label x:Name="NevLabel" HorizontalOptions="Center"/>
+            <Label x:Name="MukodesLabel" HorizontalOptions="Center"/>
+            <Label x:Name="LoszerLabel" HorizontalOptions="Center"/>
+            <Label x:Name="TomegLabel" HorizontalOptions="Center"/>
+            <Label x:Name="HosszLabel" HorizontalOptions="Center"/>
+            <Label x:Name="CsohosszLabel" HorizontalOptions="Center"/>
+            <Label x:Name="TarkapacitasLabel" HorizontalOptions="Center"/>
+            <Label x:Name="LovedekSebessegeLabel" HorizontalOptions="Center"/>
+            <Label x:Name="SzarmazasLabel" HorizontalOptions="Center"/>
+            <Label x:Name="TuzgyorsasagLabel" HorizontalOptions="Center"/>
+
         </StackLayout>
     </VerticalStackLayout>
 </ContentView>

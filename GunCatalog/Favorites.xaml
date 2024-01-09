@@ -4,9 +4,12 @@
              x:Class="GunCatalog.Favorites"
              Title="Favorites">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label
+            Text="These are your favorites"
+            FontFamily="Old English Text MT"
+            FontSize="25"
+            HorizontalOptions="Center"
+            Margin="0,0,0,40"
+            SemanticProperties.HeadingLevel="Level1" />
     </VerticalStackLayout>
 </ContentPage>

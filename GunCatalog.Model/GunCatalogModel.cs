@@ -48,7 +48,7 @@ namespace GunCatalog.Model
             if (imageStream is not null) 
             {
                 Image<Rgba32> tempImage = await Image.LoadAsync<Rgba32>(imageStream);
-                tempImage.Mutate(x => x.Resize(128, 128));
+                //tempImage.Mutate(x => x.Resize(128, 128));
                 using (MemoryStream ms = new MemoryStream())
                 {
                     await tempImage.SaveAsJpegAsync(ms);
