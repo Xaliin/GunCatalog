@@ -18,6 +18,7 @@ namespace GunCatalog.Persistence.DTO
             Id = id;
             Picture = picture;
             Data = data;
+            IsFavorite = false;
         }
 
         public Gun()

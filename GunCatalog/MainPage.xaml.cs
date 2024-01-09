@@ -33,6 +33,16 @@ namespace GunCatalog
             await _model.LoadDetailsPage((sender as Button).BindingContext as Gun);
         }
 
+        private async void LearnMoreButton_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                Uri uri = new Uri("https://weaponsystems.net/menu/21");
+                await Browser.Default.OpenAsync(uri, BrowserLaunchMode.SystemPreferred);
+            }
+            catch { }     
+        }
+
         protected override void OnAppearing()
         {
             base.OnAppearing();

@@ -12,7 +12,7 @@
             Margin="0,20,0,40"
             SemanticProperties.HeadingLevel="Level1" />
         <Image  
-            Source="noprofile.png"
+            x:Name="ProfilePicture"
             HeightRequest="200"
             Aspect="AspectFit" />
         <Grid HorizontalOptions="Center" Margin="0,20,0,0">
@@ -22,12 +22,12 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             
-            <Button Grid.Column="0" BackgroundColor="White" CornerRadius="35" Margin="0,0,10,0">
+            <Button Grid.Column="0" BackgroundColor="White" CornerRadius="35" Margin="0,0,10,0" Clicked="TakePhotoButton_Clicked">
                 <Button.ImageSource>
                     <FileImageSource File="camera.png"/>
                 </Button.ImageSource>
             </Button>
-            <Button Grid.Column="1" BackgroundColor="White" CornerRadius="35">
+            <Button Grid.Column="1" BackgroundColor="White" CornerRadius="35" Clicked="ChoosePhotoButton_Clicked">
                 <Button.ImageSource>
                     <FileImageSource File="gallery.png"/>
                 </Button.ImageSource>

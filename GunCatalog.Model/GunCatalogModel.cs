@@ -17,9 +17,10 @@ namespace GunCatalog.Model
 
         private IGunCatalogPersistence _persistence;
 
-        public List<Gun> Guns { get; set; }
+        public UserData UserData { get; set; }
+        public List<Gun> Guns => UserData.Guns;
         public Gun DetailGun { get; set; }
-        public byte[]? NewGunImageBytes { get; set; }
+        public byte[]? NewGunPhotoBytes { get; set; }
 
         public event EventHandler? HomePageLoaded;
         public event EventHandler? FavoritesPageLoaded;
@@ -27,13 +28,13 @@ namespace GunCatalog.Model
         public event EventHandler? ProfilePageLoaded;
         public event EventHandler? NewGunPageLoaded;
         public event EventHandler? NewGunPhotoLoaded;
+        public event EventHandler? NewProfilePhotoLoaded;
 
 
         public GunCatalogModel(IGunCatalogPersistence persistence) 
         { 
             Task.Run(() => LoadData());
             _persistence = persistence;
-            Guns = new List<Gun>();
         }
 
         private void OnHomePageLoaded() => HomePageLoaded?.Invoke(this, EventArgs.Empty);
@@ -42,6 +43,7 @@ namespace GunCatalog.Model
         private void OnProfilePageLoaded() => ProfilePageLoaded?.Invoke(this, EventArgs.Empty);
         private void OnNewGunPageLoaded() => NewGunPageLoaded?.Invoke(this, EventArgs.Empty);
         private void OnNewGunPhotoLoaded() => NewGunPhotoLoaded?.Invoke(this, EventArgs.Empty);
+        private void OnNewProfilePhotoLoaded() => NewProfilePhotoLoaded?.Invoke(this, EventArgs.Empty);
 
 
         public async Task LoadImage(Stream imageStream)
@@ -53,21 +55,36 @@ namespace GunCatalog.Model
                 using (MemoryStream ms = new MemoryStream())
                 {
                     await tempImage.SaveAsJpegAsync(ms);
-                    NewGunImageBytes = ms.ToArray();
+                    NewGunPhotoBytes = ms.ToArray();
                 }
                 OnNewGunPhotoLoaded();
+            }
+        }
+
+        public async Task LoadProfileImage(Stream imageStream)
+        {
+            if (imageStream is not null)
+            {
+                Image<Rgba32> tempImage = await Image.LoadAsync<Rgba32>(imageStream);
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    await tempImage.SaveAsJpegAsync(ms);
+                    UserData.ProfilePicture = ms.ToArray();
+                }
+                OnNewProfilePhotoLoaded();
+                await SaveDataAsync();
             }
         }
 
 
         public async Task SaveDataAsync()
         {
-            await _persistence.SaveData(Guns);
+            await _persistence.SaveData(UserData);
         }
 
         public async Task LoadData()
         {
-            Guns = await _persistence.LoadData();
+            UserData = await _persistence.LoadData();
         }
 
 

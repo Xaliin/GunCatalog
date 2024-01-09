@@ -31,7 +31,7 @@ public partial class NewGunPage : ContentPage
 
     private void _model_NewGunPhotoLoaded(object? sender, EventArgs e)
     {
-        GunImage.Source = ImageSource.FromStream(() => new MemoryStream(_model.NewGunImageBytes));
+        GunImage.Source = ImageSource.FromStream(() => new MemoryStream(_model.NewGunPhotoBytes));
     }
 
     public async void AddNewGunButton_Clicked(object sender, EventArgs e)
@@ -58,10 +58,10 @@ public partial class NewGunPage : ContentPage
         int id = _model.Guns.Count == 0 ? 0 : _model.Guns.Max(x => x.Id);
 
         GunData gunData = new GunData(tipus,nev,mukodes,loszer,tomeg,hossz,csohossz,tarkapacitas,lovedekSebessege,szarmazas,tuzgyorsasag);
-        Gun gun = new Gun(id, _model.NewGunImageBytes, gunData);
+        Gun gun = new Gun(id, _model.NewGunPhotoBytes, gunData);
         _model.Guns.Add(gun);
         await _model.SaveDataAsync();
-        _model.NewGunImageBytes = null;
+        _model.NewGunPhotoBytes = null;
         await DisplayAlert("Success", "New gun added!", "OK");
         await _model.LoadHomePageAsync();
     }

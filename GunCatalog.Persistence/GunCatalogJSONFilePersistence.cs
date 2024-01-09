@@ -42,34 +42,34 @@ namespace GunCatalog.Persistence
             }
         }
 
-        public async Task SaveData(List<Gun> guns)
+        public async Task SaveData(UserData userData)
         {
             try
             {
-                string json = JsonConvert.SerializeObject(guns);
+                string json = JsonConvert.SerializeObject(userData);
                 await File.WriteAllTextAsync(_dataFileName, json);
             }
             catch { }
         }
 
-        public async Task<List<Gun>> LoadData()
+        public async Task<UserData> LoadData()
         {
             try
             {
                 if (File.Exists(_dataFileName))
                 {
                     string json = await File.ReadAllTextAsync(_dataFileName);
-                    List<Gun> guns = JsonConvert.DeserializeObject<List<Gun>>(json);
-                    return guns;
+                    UserData userData = JsonConvert.DeserializeObject<UserData>(json);
+                    return userData;
                 }
                 else
                 {
-                    return new List<Gun>();
+                    return new UserData();
                 }
             }
             catch 
             { 
-                return new List<Gun>(); 
+                return new UserData(); 
             }
         }
     }

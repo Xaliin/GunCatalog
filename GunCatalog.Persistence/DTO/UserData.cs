@@ -8,5 +8,13 @@ namespace GunCatalog.Persistence.DTO
 {
     public class UserData
     {
+        public byte[]? ProfilePicture { get; set; }
+
+        public List<Gun> Guns { get; set; }
+
+        public UserData()
+        {
+            Guns = new List<Gun>();
+        }
     }
 }
