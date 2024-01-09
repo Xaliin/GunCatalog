@@ -14,28 +14,6 @@ public partial class NewGunPage : ContentPage
 		InitializeComponent();
 	}
 
-    public async void TakePhotoButton_Clicked(object sender, EventArgs e)
-    {
-        try
-        {
-            FileResult photoFile = await MediaPicker.CapturePhotoAsync();
-            if (photoFile != null)
-                await _model.LoadImage(await photoFile.OpenReadAsync());
-        }
-        catch (FeatureNotSupportedException)
-        {
-            // Feature is not supported on the device
-        }
-        catch (PermissionException)
-        {
-            // Permissions not granted
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"CapturePhotoAsync THREW: {ex.Message}");
-        }
-    }
-
     public async void ChoosePhotoButton_Clicked(object sender, EventArgs e)
     {
         try
@@ -82,7 +60,7 @@ public partial class NewGunPage : ContentPage
         GunData gunData = new GunData(tipus,nev,mukodes,loszer,tomeg,hossz,csohossz,tarkapacitas,lovedekSebessege,szarmazas,tuzgyorsasag);
         Gun gun = new Gun(id, _model.NewGunImageBytes, gunData);
         _model.Guns.Add(gun);
-        await _model.SaveData();
+        await _model.SaveDataAsync();
         _model.NewGunImageBytes = null;
         await DisplayAlert("Success", "New gun added!", "OK");
         await _model.LoadHomePageAsync();

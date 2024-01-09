@@ -3,13 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GunCatalog.Favorites"
              Title="Favorites">
-    <VerticalStackLayout>
-        <Label
-            Text="These are your favorites"
-            FontFamily="Old English Text MT"
-            FontSize="25"
-            HorizontalOptions="Center"
-            Margin="0,0,0,40"
-            SemanticProperties.HeadingLevel="Level1" />
-    </VerticalStackLayout>
+
+    <ScrollView>
+        <VerticalStackLayout x:Name="FavoritesContainer">
+            
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

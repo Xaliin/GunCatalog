@@ -62,11 +62,10 @@
                 <Entry x:Name="TuzgyorsasagEntry" Placeholder="Enter Tuzgyorsasag" />
             </StackLayout>
 
-            <Button x:Name="TakePhotoButton" Text="Take Photo" Clicked="TakePhotoButton_Clicked" />
             <Button x:Name="ChoosePhotoButton" Text="Choose Photo" Grid.Row="1" Clicked="ChoosePhotoButton_Clicked" />
             <Image x:Name="GunImage" Aspect="AspectFit" HeightRequest="200" Grid.Row="0" />
 
-            <Button Clicked="AddNewGunButton_Clicked" Text="Add new button" />
+            <Button Clicked="AddNewGunButton_Clicked" Text="Add new gun" />
         </VerticalStackLayout>        
     </ScrollView>
     

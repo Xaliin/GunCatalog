@@ -18,6 +18,7 @@ namespace GunCatalog.Model
         private IGunCatalogPersistence _persistence;
 
         public List<Gun> Guns { get; set; }
+        public Gun DetailGun { get; set; }
         public byte[]? NewGunImageBytes { get; set; }
 
         public event EventHandler? HomePageLoaded;
@@ -59,7 +60,7 @@ namespace GunCatalog.Model
         }
 
 
-        public async Task SaveData()
+        public async Task SaveDataAsync()
         {
             await _persistence.SaveData(Guns);
         }
@@ -80,8 +81,9 @@ namespace GunCatalog.Model
         {
             OnFavoritesPageLoaded();
         }
-        public async Task LoadDetailsPage()
+        public async Task LoadDetailsPage(Gun gun)
         {
+            DetailGun = gun;
             OnDetailsPageLoaded();
         }
         public async Task LoadProfilePageAsync()

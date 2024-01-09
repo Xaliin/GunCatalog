@@ -1,4 +1,5 @@
 ﻿using GunCatalog.Model;
+using GunCatalog.Persistence.DTO;
 
 namespace GunCatalog
 {
@@ -16,8 +17,20 @@ namespace GunCatalog
             CatalogItems.Children.Clear();
             foreach (var gun in _model.Guns)
             {
-                CatalogItems.Children.Add(new GunDisplayView(gun));
+                //CatalogItems.Children.Add(new GunDisplayView(gun));
+                Image img = new Image() { Source = gun.Picture is null ? ImageSource.FromFile("imagenotfound") : ImageSource.FromStream(() => new MemoryStream(gun.Picture)) };
+                CatalogItems.Children.Add(img);
+                Label label = new Label() { Text = gun.Data.Nev };
+                CatalogItems.Children.Add(label);
+                Button button = new Button() { Text = "Details", BindingContext = gun };
+                button.Clicked += GunDetailsButtonClicked;
+                CatalogItems.Children.Add(button);
             }
+        }
+
+        private async void GunDetailsButtonClicked(object sender, EventArgs e)
+        {
+            await _model.LoadDetailsPage((sender as Button).BindingContext as Gun);
         }
 
         protected override void OnAppearing()

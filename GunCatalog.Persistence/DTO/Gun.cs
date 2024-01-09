@@ -11,8 +11,7 @@ namespace GunCatalog.Persistence.DTO
         public int Id { get; set; }
         public byte[]? Picture { get; set; }
         public GunData Data { get; set; }
-
-
+        public bool IsFavorite { get; set; }
 
         public Gun(int id , byte[]? picture, GunData data)
         {
